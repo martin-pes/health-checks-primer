@@ -1,12 +1,12 @@
 using Azure.Identity;
-using HealthChecksPrimer.Common;
+using HealthChecksPrimer.Common.Services;
 using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IStockService, StockService>();
-builder.Services.AddHttpClient<IStockPrices, StockPricesMockoon>(client =>
+builder.Services.AddHttpClient<IStockPrices, StockPricesApi>(client =>
 {
     client.BaseAddress = new Uri("https://pcna-strobl.azurewebsites.net");
 });

@@ -1,4 +1,4 @@
-﻿namespace HealthChecksPrimer.Common;
+﻿namespace HealthChecksPrimer.Common.Services;
 
 public interface IStorage
 {

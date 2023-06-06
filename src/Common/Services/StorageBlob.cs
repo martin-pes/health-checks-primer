@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.Json;
 
-namespace HealthChecksPrimer.Common;
+namespace HealthChecksPrimer.Common.Services;
 
 public class StorageBlob : IStorage
 {

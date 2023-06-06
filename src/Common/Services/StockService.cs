@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace HealthChecksPrimer.Common;
+namespace HealthChecksPrimer.Common.Services;
 
 public class StockService : IStockService
 {

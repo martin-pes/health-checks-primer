@@ -1,8 +1,8 @@
-﻿namespace HealthChecksPrimer.Common;
+﻿namespace HealthChecksPrimer.Common.Services;
 
-public class StockPricesMockoon : IStockPrices
+public class StockPricesApi : IStockPrices
 {
-    public StockPricesMockoon(HttpClient httpClient)
+    public StockPricesApi(HttpClient httpClient)
     {
         _httpClient = httpClient;
     }
@@ -13,7 +13,7 @@ public class StockPricesMockoon : IStockPrices
         response.EnsureSuccessStatusCode();
 
         var result = await response.Content.ReadAsStringAsync();
-        return Decimal.Parse(result);
+        return decimal.Parse(result);
     }
 
     private readonly HttpClient _httpClient;
