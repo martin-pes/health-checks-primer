@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -6,11 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>HealthChecksPrimer.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>HealthChecksPrimer.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-    <UserSecretsId>358dfe9b-3329-4e83-a776-aa924aa68ec6</UserSecretsId>
+    <UserSecretsId>dotnet-Job-79507d1c-5134-488a-8ecd-c4704585a3c9</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
-
 </Project>
