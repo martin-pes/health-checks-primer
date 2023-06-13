@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddStockServices(builder.Configuration);
 
 builder.Services.AddHealthChecks()
-    .AddCheck<FooHealthCheck>("Foo check");
+    .AddCheck<FooHealthCheck>("Foo check")
+    .AddUrlGroup(new Uri("https://pcna-strobl.azurewebsites.net/stock/MSFT"))
+    .AddAzureBlobStorage(o => o.ContainerName = "stocks"); // assumes BlobServiceClient registered in DI
 
 var app = builder.Build();
 
