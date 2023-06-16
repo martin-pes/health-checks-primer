@@ -23,12 +23,23 @@ static Task GetHealthCheckWriter(HttpContext context, HealthReport healthReport)
     return context.Response.WriteAsync(healthReport.ToCustomJson());
 }
 
-app.MapHealthChecks("/health", new HealthCheckOptions
+app.MapHealthChecks("v1/health", new HealthCheckOptions
+{
+    Predicate = healthCheck => healthCheck.Tags.Contains("monitor")
+});
+
+app.MapHealthChecks("v2/health", new HealthCheckOptions
+{
+    ResponseWriter = GetHealthCheckWriter,
+    Predicate = healthCheck => healthCheck.Tags.Contains("monitor")
+});
+
+app.MapHealthChecks("v3/health", new HealthCheckOptions
 {
     ResponseWriter = GetHealthCheckWriter
 });
 
-app.MapHealthChecks("/health/monitor", new HealthCheckOptions
+app.MapHealthChecks("v4/health/monitor", new HealthCheckOptions
 {
     ResponseWriter = GetHealthCheckWriter,
     Predicate = healthCheck => healthCheck.Tags.Contains("monitor")
